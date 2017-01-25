@@ -1,7 +1,7 @@
 Convenience plugin on top of mockito.
 
-.. image:: https://travis-ci.org/kaste/pytest-beds.svg?branch=master
-    :target: https://travis-ci.org/kaste/pytest-beds
+.. image:: https://travis-ci.org/kaste/pytest-mockito.svg?branch=master
+    :target: https://travis-ci.org/kaste/pytest-mockito
 
 Install
 =======
@@ -14,7 +14,7 @@ After that the plugin is enabled by default.
 Fixtures
 ========
 
-The plugin provides fixtures for the main entrypoints of mockito which guarantee that you unstub() on teardown. Usage is *very* simple and straightforward::
+The plugin provides fixtures for the main entrypoints of mockito which guarantee that you `unstub()` on teardown. Usage is *very* simple and straightforward::
 
 
     def test_foo(when):
