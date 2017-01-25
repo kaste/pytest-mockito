@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="pytest-mockito",
-    version='0.0.1',
+    version='0.0.2',
     description='Base fixtures for mockito',
     long_description=open('README.rst').read(),
     license='MIT',
