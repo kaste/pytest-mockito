@@ -1,0 +1,1 @@
+pytest_plugins = "pytester", "pytest_mockito.plugin"

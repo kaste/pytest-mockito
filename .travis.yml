@@ -1,0 +1,25 @@
+language: python
+python:
+- '2.7'
+- '3.3'
+- '3.4'
+- '3.5'
+- '3.6'
+install:
+  - pip install pytest --upgrade
+  - pip install .
+script:
+- py.test tests
+env:
+  global:
+  - API_CHECK=https://appengine.google.com/api/updatecheck
+  - GAE=./google_appengine
+deploy:
+  provider: pypi
+  user: herrkaste
+  password:
+    secure: vRFXP4yMc30orSs5fK4tNxPTgcP6ppTjE51hNfDKTivihVFZo1g42EMWpTrhWpZs3wYrtmmPlBYREDaCTrWzwvgKQ+SbSdHUa9tIR9238KH1KQas5+ZavGrC+7HfjAdJMWjuobAhpB5K+5i+wG+W83lIJ6lt2LCpeYwfr36gs3neIQOD6t7N/zTAQT8Zuf6XOtHhuacOcqD+y+Koz9nxuJDB0x04Uj3jW6Jhhh4b2aeoPdQvYgRII8Ystt5hYve5OzF00DqXp+Ad/j7LFWi7DO9ZsJPopHtRnHeidUzpLTvMoxP45CA3ALpM+xXqxDjqZO2E5GiEFTVZMzx3iSA5P7mFhKU6tXoTSV74E0lZFt/SStpYlO+GPYTGzyVCuBYMgU6ZapdFmFPUhzsH0H3oJiqHol+ILRM1cwOlh4febQEcMNvMx27d/Nm4ojrobNk+Jdcc7fEfsmuJ8Hcu84SPQuFiS6FNoi49oQGJXQpv8/KJKOlmWz18ZGHViKzb+Q9P7uVRw7WyL9a+9Za2vFXM/ccCNwNYO0INajtIJ1UTIMdYKxCv7iSzRvTwkpbguikfP+2VPSaVX2HtcP1dS4kBt7yFTDFWJkHxVXFY4Fuw2w6E5Nw6bqoyRyFAA4dx1zBPeOSTuocTfBjrR2omnHLvvmgTP3XHkZBb3KXaA3JZGqw=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: kaste/pytest-mockito
