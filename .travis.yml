@@ -6,19 +6,15 @@ python:
 - '3.5'
 - '3.6'
 install:
-  - pip install pytest --upgrade
-  - pip install .
+- pip install pytest --upgrade
+- pip install .
 script:
 - py.test tests
-env:
-  global:
-  - API_CHECK=https://appengine.google.com/api/updatecheck
-  - GAE=./google_appengine
 deploy:
   provider: pypi
   user: herrkaste
   password:
-    secure: vRFXP4yMc30orSs5fK4tNxPTgcP6ppTjE51hNfDKTivihVFZo1g42EMWpTrhWpZs3wYrtmmPlBYREDaCTrWzwvgKQ+SbSdHUa9tIR9238KH1KQas5+ZavGrC+7HfjAdJMWjuobAhpB5K+5i+wG+W83lIJ6lt2LCpeYwfr36gs3neIQOD6t7N/zTAQT8Zuf6XOtHhuacOcqD+y+Koz9nxuJDB0x04Uj3jW6Jhhh4b2aeoPdQvYgRII8Ystt5hYve5OzF00DqXp+Ad/j7LFWi7DO9ZsJPopHtRnHeidUzpLTvMoxP45CA3ALpM+xXqxDjqZO2E5GiEFTVZMzx3iSA5P7mFhKU6tXoTSV74E0lZFt/SStpYlO+GPYTGzyVCuBYMgU6ZapdFmFPUhzsH0H3oJiqHol+ILRM1cwOlh4febQEcMNvMx27d/Nm4ojrobNk+Jdcc7fEfsmuJ8Hcu84SPQuFiS6FNoi49oQGJXQpv8/KJKOlmWz18ZGHViKzb+Q9P7uVRw7WyL9a+9Za2vFXM/ccCNwNYO0INajtIJ1UTIMdYKxCv7iSzRvTwkpbguikfP+2VPSaVX2HtcP1dS4kBt7yFTDFWJkHxVXFY4Fuw2w6E5Nw6bqoyRyFAA4dx1zBPeOSTuocTfBjrR2omnHLvvmgTP3XHkZBb3KXaA3JZGqw=
+    secure: mjtqU413O5h4IYhB9iZVy5FqTGwqclvBrQXewQDps+uJJIuyhCVB7EYmWf+yBt22BF+iJtde/z9yJkuLm+wvsLRvg7YJRcNDbKlGJeOiNgcR6fiBUAKcTm3MTNXyKZhQ9YvTO2Hpk2Be+18867HIyC7K2IiUi+AYY/YwX7GCoQnXTRjQ4GGmAOnUW+bGFIQNjWz7j40UQMfofkW5br+j1OERD2OGK60VcNWb6hQPLB+KQRbQ7fxkf7ODkov3rixb5VaFQqhjxgfubGMSLSA9h3S21n8STGTxgJZnnyjmI1+4FbD+VtbZLTQivaqfkexqxt/EAdU5S6mITCSbajoXMn0qTW10vMCn6dSlhBrob/1JINi9Wu2c9tj6PDeQ0hO1MJKL00wNSFdyrkgef7qsgdByPunJjkjT9Ihfsi9GUSWz4OvmIYjfbejzwNqWuEgBa4iLDKTNYsOVJHIIgJX3Z93k/O11JlalZtwSOou9CNB8CC3u1anZbA2ZahUIJV7DfcaoDzXiC2V2Zm2gNOxUeaHFHJekSLlTErCQiFNr3uQL31J10EvX2AvuOPAwdSdrUDIkcTq52o0Jq47eRoDV/27bOiXxDLfAhbPTcLzSrneI5ITu9Q7YhP1fs7sYaWeNv2II4veQz+Ei0vWjeLVcvDue5JzVZPbdmIqh4zErIXs=
   on:
     tags: true
     distributions: sdist bdist_wheel
