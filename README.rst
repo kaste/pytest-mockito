@@ -22,7 +22,7 @@ The plugin provides fixtures for the main entrypoints of mockito which guarantee
         assert os.path.exists('/foo')  # sic!
         # will still unstub/unpatch bc pytest will run the teardown
 
-You can also use a marker. `usefixtures` here will ensure an `unstub` at the end of each test, but does not actually inject the fixture::
+You can also use a marker. `usefixtures <http://doc.pytest.org/en/latest/fixture.html#using-fixtures-from-classes-modules-or-projects>`_ here will ensure an `unstub` at the end of each test, but does not actually inject the fixture::
 
     import pytest
 
@@ -30,6 +30,10 @@ You can also use a marker. `usefixtures` here will ensure an `unstub` at the end
     class TestDog:
         def test(self):
             ...
+
+To mark *all* test cases at the module level::
+
+    pytestmark = pytest.mark.usefixtures('unstub')
 
 
 All of the following fixtures just export the equivalent mockito function but `unstub()` on teardown. The exception here is `expect` which also calls `verifyNoUnwantedInteractions()`::
