@@ -2,13 +2,12 @@
 import pytest
 
 
-
-
 @pytest.fixture
 def unstub():
-    from mockito import unstub
+    from mockito import unstub, verifyStubbedInvocationsAreUsed
     yield unstub
 
+    verifyStubbedInvocationsAreUsed()
     unstub()
 
 
@@ -17,10 +16,12 @@ def when(unstub):
     from mockito import when
     yield when
 
+
 @pytest.fixture
 def when2(unstub):
     from mockito import when2
     yield when2
+
 
 @pytest.fixture
 def expect(unstub):
@@ -28,14 +29,14 @@ def expect(unstub):
     yield expect
     verifyNoUnwantedInteractions()
 
+
 @pytest.fixture
 def patch(unstub):
     from mockito import patch
     yield patch
 
+
 @pytest.fixture
 def spy2(unstub):
     from mockito import spy2
     yield spy2
-
-

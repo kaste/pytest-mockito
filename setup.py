@@ -13,7 +13,7 @@ setup(
     packages=['pytest_mockito'],
     entry_points={'pytest11': ['mockito = pytest_mockito.plugin'], },
     zip_safe=False,
-    install_requires=['pytest>=3', 'mockito>1'],
+    install_requires=['pytest>=3', 'mockito>=1.0.6'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',

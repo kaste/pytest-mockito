@@ -16,11 +16,12 @@ Fixtures
 
 The plugin provides fixtures for the main entrypoints of mockito which guarantee that you `unstub()` on teardown. Usage is *very* simple and straightforward::
 
-
     def test_foo(when):
         when(os.path).exists('/foo').thenReturn(False)
         assert os.path.exists('/foo')  # sic!
         # will still unstub/unpatch bc pytest will run the teardown
+
+For convenience `verifyStubbedInvocationsAreUsed` is called just before `unstub`. This should warn you when you setup stubs that you actually don't use.
 
 You can also use a marker. `usefixtures <http://doc.pytest.org/en/latest/fixture.html#using-fixtures-from-classes-modules-or-projects>`_ here will ensure an `unstub` at the end of each test, but does not actually inject the fixture::
 
