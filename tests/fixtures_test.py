@@ -3,7 +3,7 @@ import pytest
 import os
 
 
-class TestFixtures:
+class TestEnsureUnstubForFailingTests:
 
     @pytest.mark.xfail()
     def testFail(self, when):
@@ -11,7 +11,7 @@ class TestFixtures:
         assert not os.path.exists('/Bar')  # sic!
 
     def testCheckIfCleaned(self):
-        assert not os.path.exists('/Foo')
+        assert not os.path.exists('/Bar')
 
     def testSanityCheck(self, when):
         when(os.path).exists('/Foo').thenReturn(True)
