@@ -3,12 +3,17 @@ import pytest
 
 
 @pytest.fixture
-def unstub():
-    from mockito import unstub, verifyStubbedInvocationsAreUsed
+def unstub_():
+    from mockito import unstub
     yield unstub
+    unstub()
+
+@pytest.fixture
+def unstub(unstub_):
+    from mockito import verifyStubbedInvocationsAreUsed
+    yield unstub_
 
     verifyStubbedInvocationsAreUsed()
-    unstub()
 
 
 @pytest.fixture

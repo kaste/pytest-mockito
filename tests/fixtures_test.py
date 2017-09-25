@@ -16,3 +16,15 @@ class TestEnsureUnstubForFailingTests:
     def testSanityCheck(self, when):
         when(os.path).exists('/Foo').thenReturn(True)
         assert os.path.exists('/Foo')  # sanity check
+
+
+class TestEnsureUnstubWhenStubsAreUnused:
+
+    @pytest.mark.xfail()
+    def testFails(self, when):
+        when(os.path).exists('/Bar').thenReturn(True)
+
+    def testPass(self, when):
+        when(os.path).exists('/Bar').thenReturn(True)
+        assert os.path.exists('/Bar')
+
