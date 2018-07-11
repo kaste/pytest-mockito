@@ -8,6 +8,7 @@ def unstub_():
     yield unstub
     unstub()
 
+
 @pytest.fixture
 def unstub(unstub_):
     from mockito import verifyStubbedInvocationsAreUsed
