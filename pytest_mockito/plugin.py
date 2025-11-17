@@ -1,5 +1,6 @@
 
 import pytest
+from _pytest.outcomes import Failed
 
 
 _PLUGIN_FIXTURES = {"unstub", "when", "when2", "expect", "patch", "spy2"}
@@ -7,7 +8,9 @@ _PLUGIN_FIXTURES = {"unstub", "when", "when2", "expect", "patch", "spy2"}
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_call(item):
-    from mockito import unstub, verifyStubbedInvocationsAreUsed, verifyNoUnwantedInteractions
+    from mockito import (
+        unstub, verifyStubbedInvocationsAreUsed, verifyNoUnwantedInteractions
+    )
 
     # Let pytest (and other plugins) run the actual test call.
     outcome = yield
@@ -26,8 +29,9 @@ def pytest_runtest_call(item):
         finally:
             unstub()
 
-    if exc:
-        outcome.force_exception(exc)
+    if exc is not None:
+        # Turn the mockito verification error into a clean pytest failure.
+        outcome.force_exception(Failed(str(exc), pytrace=False))
 
 
 @pytest.fixture
