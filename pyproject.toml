@@ -1,10 +1,10 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
 name = "pytest-mockito"
-version = "0.0.4"
+dynamic = ["version"]
 description = "Base fixtures for mockito"
 readme = "README.rst"
 requires-python = ">=3.8"
@@ -40,3 +40,6 @@ package = true
 
 [dependency-groups]
 dev = ["pytest"]
+
+[tool.hatch.version]
+source = "vcs"
