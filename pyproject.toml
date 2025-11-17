@@ -13,7 +13,7 @@ authors = [
   { name = "herr kaste", email = "herr.kaste@gmail.com" },
 ]
 dependencies = [
-  "pytest>=3",
+  "pytest>=6",
   "mockito>=1.0.6",
 ]
 
