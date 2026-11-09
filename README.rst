@@ -1,7 +1,7 @@
-Convenience plugin on top of mockito.
+Convenience plugin on top of `mockito <https://github.com/kaste/mockito-python>`_.
 
-.. image:: https://travis-ci.org/kaste/pytest-mockito.svg?branch=master
-    :target: https://travis-ci.org/kaste/pytest-mockito
+.. image:: https://img.shields.io/github/actions/workflow/status/kaste/pytest-mockito/ci.yml?branch=master
+    :target: https://github.com/kaste/pytest-mockito/actions
 
 Install
 =======
